@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, CardContent, Typography, Stack, Box } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';  
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import PlanDetails from './PlanDetails';
 
-const Plan = (props) => {
+const PlanType = (props) => {
   const planData = props.planData
 
   const handleSubmit = () => {
@@ -32,21 +33,14 @@ const Plan = (props) => {
       <Card sx={{ width: '80%', margin: '0 auto', py: 2, color: "app" }}>
           <CardContent>
             <Typography variant="h5" sx={{ textAlign: 'center', py: 2 }}>test</Typography>
-            {/* <Stack direction="column" spacing={2}>
-              {answers.map((answer, index) => (
-                <Button
-                  key={index}
-                  variant="outlined"
-                  color={answer === selectedAnswer ? 'secondary' : 'blues'}
-                  onClick={() => setSelectedAnswer(answer)}
-                >
-                  {answer}
-                </Button>
-              ))}
-              <Button variant="contained" color="blues" onClick={handleSubmit}>
-                Enviar
-              </Button>
-            </Stack> */}
+
+            {/* {planData.map((data, index) => {
+              <PlanDetails planDetails={data} planIndex={index}/>
+            })} */}
+            {Object.entries(planData).map(([key, value]) => {
+              <PlanDetails planDetails={value} planIndex={key}/>
+            })}
+
             <Button variant="contained" onClick={handleSubmit}>
               Enviar
             </Button>
@@ -56,4 +50,4 @@ const Plan = (props) => {
   )
 }
 
-export default Plan
+export default PlanType

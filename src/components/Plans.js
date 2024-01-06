@@ -1,5 +1,5 @@
 import React from 'react'
-import Plan from './Plan'
+import PlanType from './PlanType'
 import { createTheme, ThemeProvider } from '@mui/material'
 
 const Plans = () => {
@@ -7,17 +7,13 @@ const Plans = () => {
     {
       "deporte": {
         "saltar en paracaidas": {
-          "location": "valencia / requena",
-          "url": "https://www.yumping.com/paracaidismo/valencia",
-          "price": "300$"
+          "url": "https://www.yumping.com/paracaidismo/valencia"
         },
         "rutas de montaña": {
           "ruinas íberas": {
-            "location": "valencia / moncada",
             "url": "https://es.wikiloc.com/rutas-senderismo/massarrojos-poblat-iber-del-tos-pelat-les-vinyetes-moncada-50481411"
           },
           "ruta al mirador en paterna": {
-            "location": "valencia / paterna",
             "url": "https://es.wikiloc.com/rutas-senderismo/paterna-a-mirador-despenaperros-82922994"
           }
         },
@@ -37,8 +33,6 @@ const Plans = () => {
         },
         "camino de santiago": {
           "camino del levante": {
-            "origen": "valencia",
-            "destino": "albacete",
             "url": "https://es.wikiloc.com/rutas-senderismo/camino-de-santiago-de-levante-tramo-completo-valencia-albacete-58650103"
           },
           "camino del norte": {},
@@ -66,9 +60,7 @@ const Plans = () => {
         },
         "conciertos / festivales": {
           "festival de les arts": {
-            "location": "valencia",
             "url": "https://festivaldelesarts.com/abonos/",
-            "price": "60$"
           },
           "coldplay": {},
           "zahara": {},
@@ -121,7 +113,7 @@ const Plans = () => {
             "url": "https://maps.app.goo.gl/8A9dKhKRsbjzn7WW7"
           },
           "cerveza artesanal": {
-            "url": ["https://maps.app.goo.gl/HKHGB2k8DVZYiH148", "https://maps.app.goo.gl/4sx8bf5ccuYRQDPMA"]
+            "url": ["https://maps.app.goo.gl/HKHGB2k8DVZYiH148"]
           },
           "cocteles con monologos": {
             "url": "https://maps.app.goo.gl/TZf1W4QMLPsowLSn9"
@@ -178,8 +170,6 @@ const Plans = () => {
     }
   ]
 
-  const onePlan = planes[0].deporte['rutas de montaña']['ruinas íberas']
-
   const mainTheme = createTheme({
     palette: {
       app: {
@@ -214,11 +204,9 @@ const Plans = () => {
 
   return (
     <ThemeProvider theme={mainTheme}>
-      {planes.map((attr1) => ( // attr1 es cultura: {aprender un idioma: nombre: url}
-        console.log(attr1)
-
+      {planes.map((activityType, index) => ( // attr1 es cultura: {aprender un idioma: nombre: url}
+        <PlanType planData={activityType} />
       ))}
-      <Plan planData={onePlan}/>
     </ThemeProvider>
   )
 }
