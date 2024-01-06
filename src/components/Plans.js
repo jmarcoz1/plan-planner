@@ -1,6 +1,7 @@
 import React from 'react'
 import PlanType from './PlanType'
 import { createTheme, ThemeProvider } from '@mui/material'
+import Box from '@mui/material/Box';
 
 const Plans = () => {
   const planes = [
@@ -204,9 +205,11 @@ const Plans = () => {
 
   return (
     <ThemeProvider theme={mainTheme}>
-      {planes.map((activityType, index) => ( // attr1 es cultura: {aprender un idioma: nombre: url}
-        <PlanType planData={activityType} />
-      ))}
+      <Box sx={{ height: '100vh' }}>
+        {planes.map((activityType, index) => (
+          <PlanType key={index} planData={activityType} />
+        ))}
+      </Box>
     </ThemeProvider>
   )
 }

@@ -8,23 +8,47 @@ const PlanDetails = (props) => {
   const planIndex = props.planIndex
 
   const handleSubmit = () => {
-    console.log({planDetails})
+    console.log({ planIndex })
   }
 
   return (
-    <Card sx={{ width: '80%', margin: '0 auto', py: 2, color: "app" }}>
-    <CardContent>
-      <Typography variant="h5" sx={{ textAlign: 'center', py: 2 }}>test</Typography>
+    <Card sx={{ width: '80%', margin: '0 auto', py: 1, color: "app" }}>
+      <CardContent>
 
-      {/* {planData.map((data, index) => {
-        <PlanDetails planDetails={data} planIndex={index}/>
-      })} */}
+        {/* {planDetails.map((data, index) => {
+          <PlanOptions planDetails={data} planIndex={index} />
+        })} */}
 
-      <Button variant="contained" onClick={handleSubmit} sx={{ ml: "auto" }}>
-        Enviar
-      </Button>
-    </CardContent>
-  </Card>
+        {Object.entries(planDetails).map(([key, value]) => {
+          return (
+            <Box>
+              <Typography variant="h5" sx={{ py: 1 }}>{key}</Typography>
+              <PlanOptions planOptions={value} planIndex={key} />
+            </Box>
+          )
+        })}
+
+        {/* {typeof planDetails === 'string' ? (
+          Object.entries(planDetails).map(([key, value]) => (
+            <Button key={key} onClick={() => handleClick(value)}>
+              {value}
+            </Button>
+          ))
+        ) : (
+          Object.entries(planDetails).map(([key, value]) => (
+            <Box>
+              <Typography variant="h5" sx={{ py: 1 }}>{key}</Typography>
+              <PlanOptions planOptions={value} planIndex={key} />
+            </Box>
+          ))
+        )} */}
+
+
+        <Button variant="contained" onClick={handleSubmit} sx={{ ml: "auto" }}>
+          Enviar
+        </Button>
+      </CardContent>
+    </Card>
   )
 }
 

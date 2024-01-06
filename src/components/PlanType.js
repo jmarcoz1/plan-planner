@@ -7,7 +7,9 @@ const PlanType = (props) => {
   const planData = props.planData
 
   const handleSubmit = () => {
-    console.log(planData)
+    Object.entries(planData).map(([key, value]) => {
+      console.log({value})
+    })
   }
 
   const mainTheme = createTheme({
@@ -20,34 +22,31 @@ const PlanType = (props) => {
       },
     },
     typography: {
-      // fontFamily: 'Fjalla One',
-      // fontFamily: 'Space Grotesk',
-      // fontFamily: 'Work+Sans',
-      // fontFamily: 'Syne',
       fontFamily: 'DM+Sans',
     }
   })
 
   return (
     <ThemeProvider theme={mainTheme}>
-      <Card sx={{ width: '80%', margin: '0 auto', py: 2, color: "app" }}>
-          <CardContent>
-            <Typography variant="h5" sx={{ textAlign: 'center', py: 2 }}>test</Typography>
-
-            {/* {planData.map((data, index) => {
-              <PlanDetails planDetails={data} planIndex={index}/>
-            })} */}
+      <Card sx={{ width: '70%', margin: 'auto', py: 1, color: "app", mt: 1 }}>
+        <Box sx={{ display: "flex", flexDirection: "column" }} >
+          <CardContent sx={{ textAlign: 'center' }}>
             {Object.entries(planData).map(([key, value]) => {
-              <PlanDetails planDetails={value} planIndex={key}/>
+              return (
+                <Box>
+                  <Typography variant="h5" >{key}</Typography>
+                  <PlanDetails planDetails={value} planIndex={key}/>
+                </Box>
+              )
             })}
-
-            <Button variant="contained" onClick={handleSubmit}>
+            <Button sx={{ margin: 'auto', color: "app" }} variant="contained" onClick={handleSubmit}>
               Enviar
             </Button>
           </CardContent>
-        </Card>
-      </ThemeProvider>
+        </Box>
+      </Card>
+    </ThemeProvider>
   )
 }
 
-export default PlanType
+export default PlanType;
