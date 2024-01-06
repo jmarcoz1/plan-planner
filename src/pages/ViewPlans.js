@@ -1,10 +1,11 @@
 import React from 'react'
 import Plans from '../components/Plans'
 
-const ViewPlans = () => {
-  console.log('view plans')
+const ViewPlans = (props) => {
+
+  const planes = props.planes
   return (
-    <Plans />
+    <Plans planes={planes}/>
   )
 }
 

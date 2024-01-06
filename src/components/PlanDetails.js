@@ -8,16 +8,12 @@ const PlanDetails = (props) => {
   const planIndex = props.planIndex
 
   const handleSubmit = () => {
-    console.log({ planIndex })
+    console.log({ planDetails })
   }
 
   return (
-    <Card sx={{ width: '80%', margin: '0 auto', py: 1, color: "app" }}>
+    <Card sx={{ width: '80%', margin: '0 auto', py: 1, color: "app", borderRadius: '16px' }}>
       <CardContent>
-
-        {/* {planDetails.map((data, index) => {
-          <PlanOptions planDetails={data} planIndex={index} />
-        })} */}
 
         {Object.entries(planDetails).map(([key, value]) => {
           return (
@@ -28,24 +24,8 @@ const PlanDetails = (props) => {
           )
         })}
 
-        {/* {typeof planDetails === 'string' ? (
-          Object.entries(planDetails).map(([key, value]) => (
-            <Button key={key} onClick={() => handleClick(value)}>
-              {value}
-            </Button>
-          ))
-        ) : (
-          Object.entries(planDetails).map(([key, value]) => (
-            <Box>
-              <Typography variant="h5" sx={{ py: 1 }}>{key}</Typography>
-              <PlanOptions planOptions={value} planIndex={key} />
-            </Box>
-          ))
-        )} */}
-
-
         <Button variant="contained" onClick={handleSubmit} sx={{ ml: "auto" }}>
-          Enviar
+          Detalles
         </Button>
       </CardContent>
     </Card>

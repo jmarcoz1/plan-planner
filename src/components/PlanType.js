@@ -28,7 +28,7 @@ const PlanType = (props) => {
 
   return (
     <ThemeProvider theme={mainTheme}>
-      <Card sx={{ width: '70%', margin: 'auto', py: 1, color: "app", mt: 1 }}>
+      <Card sx={{ width: '70%', margin: 'auto', py: 1, color: "app", mt: 1, borderRadius: '16px' }}>
         <Box sx={{ display: "flex", flexDirection: "column" }} >
           <CardContent sx={{ textAlign: 'center' }}>
             {Object.entries(planData).map(([key, value]) => {
