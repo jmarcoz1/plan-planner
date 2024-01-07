@@ -1,6 +1,7 @@
 import './App.css';
 // react components
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material'
 // my components
 import Plans from './components/Plans';
 import DayPlanner from './pages/DayPlanner';
@@ -72,7 +73,7 @@ const App = () => {
         "aprender un idioma": {
           "EOI": {
             "url": "https://portal.edu.gva.es/eoivalencia/es/escuela/admision-y-matricula/",
-            "time-of-day": ["afternoon", "night"]
+            "time-of-day": ["afternoon"]
           }
         },
         "conciertos / festivales": {
@@ -205,15 +206,35 @@ const App = () => {
     }
   ]
 
+  const mainTheme = createTheme({
+    palette: {
+      blues: {
+        main: '#5B9A8B',
+        light: '#9EC8B9',
+        dark: '#1B4242',
+        contrastText: '#F7E987'
+      },
+    },
+    typography: {
+      // fontFamily: 'Fjalla One',
+      // fontFamily: 'Space Grotesk',
+      // fontFamily: 'Work+Sans',
+      // fontFamily: 'Syne',
+      fontFamily: 'DM+Sans',
+    }
+  })
+
   return (
-    <Router>
-      <ButtonAppBar />
-      <Routes>
-        <Route path="/" element={<DayPlanner planes={planes} />} />
-        <Route path="/add-plan" element={<AddPlans />} />
-        <Route path="/view-plans" element={<ViewPlans planes={planes} />} />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={mainTheme}>
+      <Router>
+        <ButtonAppBar />
+        <Routes>
+          <Route path="/" element={<DayPlanner planes={planes} />} />
+          <Route path="/add-plan" element={<AddPlans />} />
+          <Route path="/view-plans" element={<ViewPlans planes={planes} />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

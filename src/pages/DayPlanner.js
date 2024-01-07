@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-import { Box, Button, Card, CardContent, Typography } from '@mui/material';
-
+import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Button } from '../styles/StyledComponents';
 import { flattenDeep } from 'lodash';
 
 const DayPlanner = (props) => {
@@ -51,7 +51,7 @@ const DayPlanner = (props) => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }} >
-      <Button sx={{ margin: 'auto', color: "app", mt: 2 }} variant="contained" onClick={clg}>Plan the day</Button>
+      <Button sx={(theme) => ({ margin: 'auto', mt: 2, fontFamily: theme.typography.fontFamily, color: theme.palette.blues.contrastText })} variant="contained" onClick={clg}>Plan the day</Button>
 
       {/* <Card sx={{ width: '70%', margin: 'auto', py: 1, color: "app.main", mt: 1 }}>
         {activities && activities.map((activity, index) => (

@@ -12,7 +12,7 @@ import TodayIcon from '@mui/icons-material/Today';
 
 const ButtonAppBar = () => {
   return (
-    <AppBar position="static" sx={{ bgcolor: '#40bf77' }}>
+    <AppBar position="static" sx={{ bgcolor: 'blues.dark' }}>
       <Toolbar sx={{ justifyContent: 'space-around', alignItems: 'center' }}>
 
         <IconButton color="inherit" component={Link} to="/">
