@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
-import { Box, Card, CardContent, Typography } from '@mui/material';
-import { Button } from '../styles/StyledComponents';
+import { Box } from '@mui/material';
+// import { Button } from '../styles/StyledComponents';
 import { flattenDeep } from 'lodash';
+
+import { Button, Card } from '../styles/StyledComponents';
 
 const DayPlanner = (props) => {
 
@@ -51,24 +53,18 @@ const DayPlanner = (props) => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }} >
-      <Button sx={(theme) => ({ margin: 'auto', mt: 2, fontFamily: theme.typography.fontFamily, color: theme.palette.blues.contrastText })} variant="contained" onClick={clg}>Plan the day</Button>
 
-      {/* <Card sx={{ width: '70%', margin: 'auto', py: 1, color: "app.main", mt: 1 }}>
-        {activities && activities.map((activity, index) => (
-          <Button variant="contained" color="primary" href={activity.url} target="_blank" key={index}>
-            {activity.activity}
-          </Button>
-        ))}
-      </Card> */}
       {activities && (
-        <Card sx={{ width: '80%', margin: 'auto', py: 1, color: "app", my: 2, display: "flex", flexDirection: "column", borderRadius: '16px' }}>
+        <Card sx={{ width: '80%', margin: 'auto', py: 1, color: "app", display: "flex", flexDirection: "column", borderRadius: '16px', mb: 2 }}>
           {activities.map((activity, index) => (
-            <Button sx={{ width: '60%', margin: 'auto', color: "app", my: 2 }} variant="contained" color="primary" href={activity.url} target="_blank" key={index}>
+            <Button sx={{ width: '60%', margin: 'auto', my: 2 }} variant="contained" color="primary" href={activity.url} target="_blank" key={index}>
               {activity.activity}
             </Button>
           ))}
         </Card>
       )}
+      <Button sx={{ margin: 'auto' }} variant="contained" onClick={clg}>Planea el día</Button>
+
     </Box>
   )
 }
