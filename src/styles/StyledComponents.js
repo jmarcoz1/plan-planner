@@ -1,6 +1,6 @@
 // StyledComponents.js
 import { styled } from '@mui/system';
-import { Card as MuiCard, Button as MuiButton} from '@mui/material';
+import { Card as MuiCard, Button as MuiButton, TextField as MuiTextField} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material'
 
 const mainTheme = createTheme({
@@ -25,9 +25,19 @@ const mainTheme = createTheme({
 export const Card = styled(MuiCard)(({ theme }) => ({
   width: '80%',
   margin: 'auto',
-  py: 1,
-  color: theme.palette.blues.main,
-  mt: 1,
+  backgroundColor: theme.palette.blues.main,
+  color: theme.palette.blues.contrastText,
+  my: 2,
+  display: "flex",
+  flexDirection: "column",
+  borderRadius: '16px',
+}));
+
+export const TextField = styled(MuiTextField)(({ theme }) => ({
+  width: '80%',
+  margin: 'auto',
+  my: 2,
+  color: theme.palette.blues.contrastText,
   borderRadius: '16px',
 }));
 
