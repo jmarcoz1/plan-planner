@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'http://localhost:8000/api';  // replace with your actual API URL
 
 export const getActivities = async () => {
-  const response = axios.get(`${API_URL}/activities`)
+  const response = axios.get(`${API_URL}/activities/`)
     .then(response => {
       console.log(response.data);
     })
