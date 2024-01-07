@@ -8,17 +8,16 @@ const PlanOptions = (props) => {
   const planIndex = props.planIndex;
 
   const handleClick = (url) => {
-    // console.log({planOptions})
     window.location.href = url;
   };
 
   return (
-    <Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       {'url' in planOptions ? (
-        <Button onClick={() => handleClick(planOptions.url)}>Go to URL</Button>
+        <Button sx={{ width: '60%', margin: 'auto', mb: 1, color: '#F7E987', backgroundColor: '#092635', borderRadius: '16px' }} onClick={() => handleClick(planOptions.url)}>Ver detalles</Button>
       ) : (
         Object.entries(planOptions).map(([key, value]) => (
-          <Button key={key} onClick={() => handleClick(value.url)}>
+          <Button key={key} sx={{ width: '60%', margin: 'auto', mb: 1, color: '#F7E987', backgroundColor: '#092635', borderRadius: '16px' }} onClick={() => handleClick(value.url)}>
             {key}
           </Button>
         ))

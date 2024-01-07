@@ -79,17 +79,7 @@ const App = () => {
         "conciertos / festivales": {
           "festival de les arts": {
             "url": "https://festivaldelesarts.com/abonos/",
-          },
-          "coldplay": {},
-          "zahara": {},
-          "the weekend": {},
-          "sen senra": {},
-          "love of lesbian": {},
-          "leiva": {},
-          "nathy peluso": {},
-          "nicki nicole": {},
-          "la la love you": {},
-          "amaia": {}
+          }
         },
         "ir al teatro": {
           "teatro olympia": {

@@ -55,7 +55,7 @@ const DayPlanner = (props) => {
     <Box sx={{ display: "flex", flexDirection: "column" }} >
 
       {activities && (
-        <Card sx={{ width: '80%', margin: 'auto', py: 1, color: "app", display: "flex", flexDirection: "column", borderRadius: '16px' }}>
+        <Card sx={{ width: '80%', margin: 'auto', py: 1, color: "app", display: "flex", flexDirection: "column", borderRadius: '16px', mb: 2 }}>
           {activities.map((activity, index) => (
             <Button sx={{ width: '60%', margin: 'auto', my: 2 }} variant="contained" color="primary" href={activity.url} target="_blank" key={index}>
               {activity.activity}
@@ -63,7 +63,7 @@ const DayPlanner = (props) => {
           ))}
         </Card>
       )}
-      <Button sx={{ margin: 'auto' }} variant="contained" onClick={clg}>Plan the day</Button>
+      <Button sx={{ margin: 'auto' }} variant="contained" onClick={clg}>Planea el día</Button>
 
     </Box>
   )

@@ -12,21 +12,16 @@ const PlanDetails = (props) => {
   }
 
   return (
-    <Card sx={{ width: '80%', margin: '0 auto', py: 1, color: "app", borderRadius: '16px' }}>
+    <Card sx={{ width: '80%', margin: '0 auto', py: 1, borderRadius: '16px', backgroundColor: '#9EC8B9' }}>
       <CardContent>
-
         {Object.entries(planDetails).map(([key, value]) => {
           return (
             <Box>
-              <Typography variant="h5" sx={{ py: 1 }}>{key}</Typography>
+              <Typography variant="h6" >{key}</Typography>
               <PlanOptions planOptions={value} planIndex={key} />
             </Box>
           )
         })}
-
-        <Button variant="contained" onClick={handleSubmit} sx={{ ml: "auto" }}>
-          Detalles
-        </Button>
       </CardContent>
     </Card>
   )
